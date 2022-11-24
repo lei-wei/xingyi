@@ -7,22 +7,30 @@ module.exports = {
   theme: 'vdoing', // 使用依赖包主题
   // theme: require.resolve('../../vdoing'), // 使用本地主题 (先将vdoing主题文件下载到本地：https://github.com/xugaoyi/vuepress-theme-vdoing)
 
-  title: "vuepress-theme-vdoing",
-  description: '一个基于VuePress的 知识管理&博客 主题',
-  // base: '/', // 默认'/'。如果你想将你的网站部署到如 https://foo.github.io/bar/，那么 base 应该被设置成 "/bar/",（否则页面将失去样式等文件）
+  title: "开源电子谱册尝试",
+  description: '一个基于VuePress的 知识管理&博客 主题，尝试做成开源在线谱册文档',
+  base: '/', // 默认'/'。如果你想将你的网站部署到如 https://foo.github.io/bar/，那么 base 应该被设置成 "/bar/",（否则页面将失去样式等文件）
   head: [ // 注入到页面<head> 中的标签，格式[tagName, { attrName: attrValue }, innerHTML?]
     ['link', { rel: 'icon', href: '/img/favicon.ico' }], //favicons，资源放在public文件夹
     ['meta', { name: 'keywords', content: 'vuepress,theme,blog,vdoing' }],
     ['meta', { name: 'theme-color', content: '#11a8cd' }], // 移动浏览器主题颜色
 
-    ['meta', { name: 'wwads-cn-verify', content: '6c4b761a28b734fe93831e3fb400ce87' }], // 广告相关，你可以去掉
-    ['script', { src: 'https://cdn.wwads.cn/js/makemoney.js', type: 'text/javascript' }], // 广告相关，你可以去掉
+    // ['meta', { name: 'wwads-cn-verify', content: '6c4b761a28b734fe93831e3fb400ce87' }], // 广告相关，你可以去掉
+    // ['script', { src: 'https://cdn.wwads.cn/js/makemoney.js', type: 'text/javascript' }], // 广告相关，你可以去掉
   ],
 
   // 主题配置
   themeConfig: {
     nav: [
-      { text: '首页', link: '/' },
+      { text: '首页', link: '/music/' },
+      {
+        text: '曲谱', link: '/music/', items: [
+          { text: '独奏曲', link: '/pages/57ea2b/' },
+          { text: '重奏曲', link: '/pages/181cde/' },
+          { text: 'Blues', link: '/pages/10c6cb/' },
+        ]
+      },
+
       {
         text: '指南', link: '/pages/a2f161/', items: [
           { text: '主题初衷与诞生', link: '/pages/52d5c3/' },
@@ -43,24 +51,34 @@ module.exports = {
               { text: '关于博客搭建与管理', link: '/pages/26997d/' },
               { text: '在线编辑和新增文章的方法', link: '/pages/c5a54d/' },
             ]
-          }
+          },      
+          {
+            text: '配置', link: '/pages/a20ce8/', items: [
+              { text: '主题配置', link: '/pages/a20ce8/' },
+              { text: '首页配置', link: '/pages/f14bdb/' },
+              { text: 'front matter配置', link: '/pages/3216b0/' },
+              { text: '目录页配置', link: '/pages/54651a/' },
+              { text: '添加摘要', link: '/pages/1cc523/' },
+              { text: '修改主题颜色和样式', link: '/pages/f51918/' },
+              { text: '评论栏', link: '/pages/ce175c/' },
+            ]
+          },
+          { text: '学习笔记草稿', link: '/pages/7b7da1/' },
+
         ]
       },
+
+      // { text: '赞助', link: '/pages/1b12ed/' },
+      { text: '关于', link: '/pages/664dcb/' },
       {
-        text: '配置', link: '/pages/a20ce8/', items: [
-          { text: '主题配置', link: '/pages/a20ce8/' },
-          { text: '首页配置', link: '/pages/f14bdb/' },
-          { text: 'front matter配置', link: '/pages/3216b0/' },
-          { text: '目录页配置', link: '/pages/54651a/' },
-          { text: '添加摘要', link: '/pages/1cc523/' },
-          { text: '修改主题颜色和样式', link: '/pages/f51918/' },
-          { text: '评论栏', link: '/pages/ce175c/' },
-        ]
+        text: '索引',
+        link: '/blog/',
+        items: [
+          { text: '分类', link: '/categories/' },
+          { text: '标签', link: '/tags/' },
+          { text: '归档', link: '/blog/' },
+        ],
       },
-      { text: '资源', link: '/pages/db78e2/' },
-      { text: '案例', link: '/pages/5d571c/' },
-      { text: '问答', link: '/pages/9cc27d/' },
-      { text: '赞助', link: '/pages/1b12ed/' },
     ],
     sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
     logo: '/img/logo.png', // 导航栏logo
@@ -73,7 +91,7 @@ module.exports = {
     // editLinkText: '编辑',
 
     // 以下配置是Vdoing主题改动的和新增的配置
-    sidebar: { mode: 'structuring', collapsable: false }, // 侧边栏  'structuring' | { mode: 'structuring', collapsable: Boolean} | 'auto' | 自定义    温馨提示：目录页数据依赖于结构化的侧边栏数据，如果你不设置为'structuring',将无法使用目录页
+    sidebar: { mode: 'structuring', collapsable: true }, // 侧边栏  'structuring' | { mode: 'structuring', collapsable: Boolean} | 'auto' | 自定义    温馨提示：目录页数据依赖于结构化的侧边栏数据，如果你不设置为'structuring',将无法使用目录页
 
     // sidebarOpen: false, // 初始状态是否打开侧边栏，默认true
     updateBar: { // 最近更新栏
@@ -90,13 +108,13 @@ module.exports = {
 
     // contentBgStyle: 1,
 
-    category: false, // 是否打开分类功能，默认true。 如打开，会做的事情有：1. 自动生成的frontmatter包含分类字段 2.页面中显示与分类相关的信息和模块 3.自动生成分类页面（在@pages文件夹）。如关闭，则反之。
-    tag: false, // 是否打开标签功能，默认true。 如打开，会做的事情有：1. 自动生成的frontmatter包含标签字段 2.页面中显示与标签相关的信息和模块 3.自动生成标签页面（在@pages文件夹）。如关闭，则反之。
-    // archive: false, // 是否打开归档功能，默认true。 如打开，会做的事情有：1.自动生成归档页面（在@pages文件夹）。如关闭，则反之。
+    category: true, // 是否打开分类功能，默认true。 如打开，会做的事情有：1. 自动生成的frontmatter包含分类字段 2.页面中显示与分类相关的信息和模块 3.自动生成分类页面（在@pages文件夹）。如关闭，则反之。
+    tag: true, // 是否打开标签功能，默认true。 如打开，会做的事情有：1. 自动生成的frontmatter包含标签字段 2.页面中显示与标签相关的信息和模块 3.自动生成标签页面（在@pages文件夹）。如关闭，则反之。
+    archive: true, // 是否打开归档功能，默认true。 如打开，会做的事情有：1.自动生成归档页面（在@pages文件夹）。如关闭，则反之。
 
     author: { // 文章默认的作者信息，可在md文件中单独配置此信息 String | {name: String, href: String}
-      name: 'Evan Xu', // 必需
-      href: 'https://github.com/xugaoyi' // 可选的
+      name: '星一', // 必需
+      href: 'https://github.com/lei-wei' // 可选的
     },
     social: { // 社交图标，显示于博主信息栏和页脚栏
       // iconfontCssFile: '//at.alicdn.com/t/font_1678482_u4nrnp8xp6g.css', // 可选，阿里图标库在线css文件地址，对于主题没有的图标可自由添加
@@ -109,18 +127,18 @@ module.exports = {
         {
           iconClass: 'icon-github',
           title: 'GitHub',
-          link: 'https://github.com/xugaoyi'
+          link: 'https://github.com/lei-wei'
         },
         {
-          iconClass: 'icon-erji',
-          title: '听音乐',
-          link: 'https://music.163.com/#/playlist?id=755597173'
+          iconClass: 'icon-video',
+          title: '哔哩哔哩连接',
+          link: 'https://space.bilibili.com/166189055'
         }
       ]
     },
     footer: { // 页脚信息
-      createYear: 2019, // 博客创建年份
-      copyrightInfo: 'Evan Xu | MIT License', // 博客版权信息，支持a标签
+      createYear: 2022, // 博客创建年份
+      copyrightInfo: 'XingYi | MIT License', // 博客版权信息，支持a标签
     },
     htmlModules,
   },
