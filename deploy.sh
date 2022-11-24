@@ -22,7 +22,7 @@ echo 'xingyi.leiwei.space' > CNAME
 
 git init
 git add -A
-git commit -m "deploy, by sh file"
+git commit -m "deploy by sh file"
 # git push -f $push_addr HEAD:$push_branch
 
 # git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
@@ -32,4 +32,9 @@ cd -
 
 rm -rf $dist_path
 
-git push origin main -f
+# 推送源文件
+git add -A
+git commit -m "deploy by sh file"
+
+# git push origin main -f
+git push -f git@github.com:lei-wei/xingyi.git main
