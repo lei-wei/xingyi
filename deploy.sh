@@ -31,3 +31,5 @@ git push -f git@github.com:lei-wei/xingyi.git master:gh-pages
 cd -
 
 rm -rf $dist_path
+
+git push origin main -f
