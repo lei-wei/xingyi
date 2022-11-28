@@ -9,6 +9,8 @@ set -e
 dist_path=docs/.vuepress/dist # 打包生成的文件夹路径
 push_branch=gh-pages # 推送的分支
 
+# -----------推送网站文件----------------
+
 # 生成静态文件
 npm run build
 
@@ -32,7 +34,7 @@ cd -
 
 rm -rf $dist_path
 
-# 推送源文件
+# -----------推送源文件----------------
 git add -A
 git commit -m "deploy by sh file"
 
